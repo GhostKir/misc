@@ -1,12 +1,16 @@
 state("SHReK the THiRD")
 {
     byte level : 0x3692E0;
+	byte loading : 0x37B9DC;
 	byte scene : "binkw32.dll", 0x54AB4;
 }
 
 start
 {
-    return (current.scene == 1);
+    return (
+		(current.scene == 1) &&
+		(current.loading == 0)
+	);
 }
 
 split
